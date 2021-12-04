@@ -39,6 +39,16 @@ client.connect(err=>{
     })
 
 
+    app.get('/customer',(req,res)=>{
+        collection.find({})
+        .toArray((err,documents)=>{
+            if(documents.length){
+                res.send(documents);
+            }
+        })
+    })
+
+
 })
 
 app.listen(PORT || port, () => console.log("Listening on port ", port));
